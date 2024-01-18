@@ -1,0 +1,246 @@
+/*Contenedor de categorias*/
+input[type="radio"] {
+    display: none;
+}
+
+.container-category {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-left: 150px;
+}
+
+.container-category label {
+    padding: 6px 40px;
+    display: inline-block;
+    margin: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    list-style: none;
+    text-align: center;
+}
+
+.container-category label:hover {
+    opacity: 0.8;
+    color: #fff;
+    font-weight: bold;
+    background: #097709;
+    cursor: pointer;
+}
+
+
+.container-post {
+    margin: auto;
+    padding: 0;
+    width: 100%;
+    max-width: 1000px;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+
+.posts {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.posts .post {
+    background: #fff;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+    border-radius: 6px;
+    overflow: hidden;
+    padding-bottom: 20px;
+    width: auto;
+}
+.posts .post iframe{
+    width: 100%;
+    height: 270px;
+}
+
+.post .ctn-img {
+    width: 100%;
+}
+
+.post .ctn-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post h2 {
+    font-size: 18px;
+    margin-top: 10px;
+    padding: 0px 10px;
+    text-align: center;
+}
+
+.after::after {
+    content: '';
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    width: 100px;
+    height: 2px;
+    background: #097709;
+    margin-bottom: 45px;
+}
+
+/*Sistema de filtrado*/
+[value="Gobernacion"]:checked~.posts .post:not([data-category~="Gobernacion"]),
+[value="Otros"]:checked~.posts .post:not([data-category~="Otros"]),
+[value="Alcaldias"]:checked~.posts .post:not([data-category~="Alcaldias"]) {
+    display: none;
+}
+
+[value="Gobernacion"]:checked~.container-category [for="Gobernacion"],
+[value="Otros"]:checked~.container-category [for="Otros"],
+[value="Alcaldias"]:checked~.container-category [for="Alcaldias"],
+[value="Todos"]:checked~.container-category [for="Todos"] {
+    background: #097709;
+    color: #fff;
+}
+
+/* Responsive*/
+
+/* Nuestros Aliados*/
+@media only screen and (min-width:320px) and (max-width:600px){
+    .after::after {
+        margin-bottom: 12px;
+    }
+    .container-post {
+        width: 100%;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-top: 9px ;
+
+    }
+
+    .container-category {
+        display: flex;
+        flex-direction: row;
+        margin-right: 50px;
+        margin-inline: auto;
+        justify-content: space-evenly;
+    }
+
+    .container-category label {
+        padding: 5px;
+        display: inline-block;
+        margin: 0px;
+        font-size: 15px;
+        border-radius: 5px;
+        border: 1px solid #000;
+        list-style: none;
+        text-align: center;
+
+    }
+    .posts {
+        width: 100%;
+        margin-top: 20px;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .posts .post {
+        background: #fff;
+        box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+        border-radius: 6px;
+        overflow: hidden;
+        padding-bottom: 20px;
+        height: 200px;
+    }
+    .posts .post iframe{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;/*para que se adapte al contenedor*/
+    }
+}
+
+@media only screen and (min-width:601px) and (max-width:800px){
+    .container-category {
+        display: flex;
+        flex-direction: row;
+        margin-right: 50px;
+        margin-inline: auto;
+        justify-content: space-evenly;
+    }
+
+    .container-category label {
+        padding: 5px;
+        display: inline-block;
+        margin: 0px;
+        font-size: 18px;
+        border-radius: 6px;
+        border: 1px solid #000;
+        list-style: none;
+        text-align: center;
+
+    }
+    .posts {
+        width: 100%;
+        margin-top: 20px;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .posts .post {
+        background: #fff;
+        box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+        border-radius: 6px;
+        overflow: hidden;
+        padding-bottom: 20px;
+        height: 100%;
+    }
+    .posts .post iframe{
+        width: 100%;
+        height: 285px;
+        object-fit: contain;/*para que se adapte al contenedor*/
+    }
+   
+}
+@media only screen and (min-width:801px) and (max-width:1024px){
+    .container-post p{
+        font-size: 20px;
+    }
+    .container-category {
+        display: flex;
+        flex-direction: row;
+        margin-right: 50px;
+        margin-inline: auto;
+        justify-content: space-evenly;
+    }
+    .container-category label {
+        padding: 10px;
+        display: inline-block;
+        margin: 0px;
+        font-size: 19px;
+        border-radius: 6px;
+        border: 1px solid #000;
+        list-style: none;
+        text-align: center;
+    }
+    .posts {
+        width: 100%;
+        margin-top: 20px;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .posts .post iframe{
+        width: 100%;
+        height: 355px;
+        object-fit: contain;/*para que se adapte al contenedor*/
+    }
+}

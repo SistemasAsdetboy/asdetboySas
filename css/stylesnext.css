@@ -1,0 +1,653 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Permanent+Marker&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  background-color: #ffffff95;
+}
+
+header {
+  width: 100%;
+}
+
+.header .main {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.navbar {
+  margin-top: 30px;
+}
+
+.navbar .brand {
+  display: flex;
+  margin: 4px 70px;
+  color: #78a841;
+}
+
+.navbar .brand .fa-wine-bottle {
+  font-size: 1.6em;
+}
+
+.navbar .brand h3 {
+  font-size: 1.3em;
+  margin: 5px 5px;
+}
+
+.menu ul {
+  display: flex;
+  justify-content: flex-end;
+  margin: -60px 0px;
+}
+
+.navbar ul li a i {
+  padding-right: 10px;
+  color: #25c50f;
+  transition: all 0.5s ease 0s;
+}
+
+.menu ul li {
+  list-style: none;
+  margin-right: 30px;
+  float: left;
+}
+
+.menu ul li a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.navbar ul li:hover ul {
+  display: block;
+}
+
+.navbar li ul {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  align-items: flex-start;
+}
+
+.menu ul li a:hover {
+  color: #78a841;
+}
+
+.navbar .toggle-menu {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 25px;
+}
+
+.navbar .toggle-menu i {
+  font-size: 1.8em;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  display: none;
+}
+
+.container-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.container-info h1 {
+  font-size: 5em;
+
+  animation: left-move 1s ease-in;
+}
+
+.container-info h2 {
+  font-size: 2em;
+  animation: right-move 1s ease-in;
+}
+
+.container-info .btn {
+  font-size: 1.5em;
+  width: 200px;
+  padding: 5px;
+  border-radius: 50px;
+  background-color: #78a841;
+  border: none;
+  color: #fff;
+  animation: right-move 1s ease-in;
+}
+
+.container-info .img-content img {
+  max-width: 100%;
+  animation: up-move 1s ease-in;
+}
+
+.container-info .img-content img:hover {
+  filter: grayscale(90%);
+}
+
+.container-info .social-content li {
+  list-style: none;
+  margin: 20px;
+  animation: left-move 1s ease-in;
+}
+
+.container-info .social-content i {
+  font-size: 1.6em;
+  color: #c9b205;
+}
+
+.container-info .social-content i:hover {
+  transform: scale(1.5);
+}
+
+header .wave {
+  margin-top: -100px;
+}
+
+@keyframes left-move {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes right-move {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes up-move {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+
+.products-section .wrapper{
+  padding-bottom: 50px;
+  padding-left: 60px;
+}
+.titulo {
+  font-size: 60px;
+  text-align: center;
+  color: #097709;
+  font-family: 'Nunito', sans-serif;
+}
+
+.products-section {
+  background: rgb(224, 228, 223);
+}
+
+/**/
+.about-us {
+  background: rgb(224, 228, 223);
+}
+
+/* footer */
+footer {
+  padding: 20px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+  background: #f2f2f2;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right,
+      #f2f2f2,
+      #f2f2f2);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right,
+      #f2f2f2,
+      #f2f2f2);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.partFooter {
+  width: 20%;
+  text-align: center;
+}
+
+.partFooter h4 {
+  color: #041c4d;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.partFooter a {
+  display: block;
+  text-decoration: none;
+  color: #000000;
+  font-weight: bolder;
+  transition: color .3s ease-in-out;
+  margin: 10px 0;
+  font-size: 15px;
+}
+
+.partFooter img {
+  width: 70%;
+}
+
+footer p {
+  margin-bottom: 10px;
+  color: #000;
+  text-align: center;
+  font-size: 16px;
+}
+
+/*Redes sociales fijas a la derecha*/
+.social-bar {
+  position: fixed;
+  right: 0;
+  top: 35%;
+  font-size: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 100;
+  border-color: #000;
+}
+
+.icon {
+  background: white;
+  text-decoration: none;
+  padding: .7rem;
+  display: flex;
+  transition: all .5s;
+}
+
+.icon-facebook {
+  color: #2E406E;
+}
+
+.icon-twitter {
+  color: #339DC5;
+}
+
+.icon-instagram {
+  color: #3f729b;
+}
+
+.icon-linkedin {
+  color: #0e76a8;
+}
+
+.icon-youtube {
+  color: #E83028;
+}
+
+.icon:first-child {
+  border-radius: 1rem 0 0 0;
+}
+
+.icon:last-child {
+  border-radius: 0 0 0 1rem;
+}
+
+.icon-facebook:hover {
+  padding-right: 3rem;
+  border-radius: 1rem 0 0 1rem;
+  box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.42);
+  color: white;
+  background: #2E406E;
+}
+
+.icon-twitter:hover {
+  padding-right: 3rem;
+  border-radius: 1rem 0 0 1rem;
+  box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.42);
+  color: white;
+  background: #339DC5;
+}
+
+.icon-instagram:hover {
+  padding-right: 3rem;
+  border-radius: 1rem 0 0 1rem;
+  box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.42);
+  color: white;
+  background: #3f729b;
+}
+
+.icon-linkedin:hover {
+  padding-right: 3rem;
+  border-radius: 1rem 0 0 1rem;
+  box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.42);
+  color: white;
+  background: #0e76a8;
+}
+
+.icon-youtube:hover {
+  padding-right: 3rem;
+  border-radius: 1rem 0 0 1rem;
+  box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.42);
+  color: white;
+  background: #E83028;
+}
+
+/*ESTILOS WHATSAPP*/
+.fab {
+  display: none;
+  padding: 20px;
+  background: #024959;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  border-radius: 50%;
+  text-decoration: none;
+}
+
+.fa-whatsapp {
+  background: #00bb2d;
+  color: white;
+  align-items: center;
+}
+
+/*Tooltip*/
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: #00bb2d;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  font-size: 15px;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 5px;
+  left: 105%;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+/*boton parte footer*/
+.button1 {
+  background-color: #fff;
+  border: 3px solid #097709;
+  border-radius: 10px;
+  width: 50%;
+  height: 25%;
+  justify-content: center;
+  align-items: center;
+}
+
+.button1:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media screen and (max-width:600px) {
+  .titulo {
+    font-size: 70px;
+  }
+
+  /*Menu*/
+  .brand a img {
+    margin-left: -50px;
+    margin-top: -16px;
+  }
+
+  .navbar .toggle-menu i {
+    display: block;
+    margin: -130px 30px;
+    color: #000;
+  }
+
+  .navbar {
+    height: 30px;
+  }
+
+  .navbar .menu ul {
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: #097709;
+    transform: translateX(-120%);
+    transition: 1s ease-in;
+    border: 1px solid #fff;
+    margin-top: 0;
+
+  }
+
+  .navbar .menu .menu-on {
+    transform: translateX(-1%);
+
+  }
+
+  .navbar .menu ul li {
+    margin: 30px;
+    text-transform: uppercase;
+  }
+
+  .nav__close {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    width: 30px;
+    cursor: pointer;
+    display: flex;
+  }
+
+  /*Colores menu*/
+  .menu ul li a {
+    color: #fff;
+  }
+
+  .navbar ul li a i {
+    padding-right: 10px;
+    color: #22fa06;
+    transition: all 0.5s ease 0s;
+  }
+
+  .products-section .wrapper{
+    padding-left: 10px;
+  }
+  .products-section .wrapper img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .about-us {
+    margin-top: 0;
+  }
+
+  /* Footer */
+  footer {
+    flex-wrap: wrap;
+  }
+
+  .partFooter {
+    width: 95%;
+    margin-bottom: 10px;
+  }
+
+  .button1 {
+    width: 30%;
+  }
+
+  /*Redes sociales*/
+  .social-bar {
+    font-size: 1.6rem;
+    top: 37%;
+  }
+
+  /*Boton de Whatsapp*/
+  .fab {
+    left: 5px;
+  }
+}
+
+@media screen and (max-width:800px) {
+  .titulo {
+    font-size: 70px;
+  }
+
+  /*Menu*/
+  .brand a img {
+    margin-left: -50px;
+    margin-top: -16px;
+  }
+
+  .navbar .toggle-menu i {
+    display: block;
+    margin: -130px 30px;
+    color: #000;
+  }
+
+  .navbar {
+    height: 30px;
+  }
+
+  .navbar .menu ul {
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: #097709;
+    transform: translateX(-120%);
+    transition: 1s ease-in;
+    border: 1px solid #fff;
+    margin-top: 0;
+
+  }
+
+  .navbar .menu .menu-on {
+    transform: translateX(-1%);
+
+  }
+
+  .navbar .menu ul li {
+    margin: 30px;
+    text-transform: uppercase;
+  }
+
+  .nav__close {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    width: 30px;
+    cursor: pointer;
+    display: flex;
+  }
+
+  /*Colores menu*/
+  .menu ul li a {
+    color: #fff;
+  }
+
+  .navbar ul li a i {
+    padding-right: 10px;
+    color: #22fa06;
+    transition: all 0.5s ease 0s;
+  }
+
+  .products-section .wrapper{
+    padding-left: 5px;
+  }
+
+  .products-section .wrapper img {
+    height: 100%;
+    width: 100%;
+  }
+
+
+  /* Footer */
+  footer{
+    flex-wrap: wrap;
+  }
+  .partFooter {
+    width: 95%;
+    margin-bottom: 10px;
+  }
+  .button1{
+    width: 30%;
+  }
+  /*Redes sociales*/
+  .social-bar {
+    font-size: 1.6rem;
+    top: 37%;
+  }
+
+  /*Boton de Whatsapp*/
+  .fab {
+    left: 5px;
+  }
+}
+
+@media screen and (max-width:1024px) {
+  .brand a img {
+    margin-left: -50px;
+    margin-top: -16px;
+  }
+
+  .menu ul li {
+    list-style: none;
+    margin-right: 0px;
+  }
+
+  .menu ul li a {
+    text-decoration: none;
+    font-size: 15px;
+    padding-right: 10px;
+  }
+
+  .navbar ul li a i {
+    padding-right: 0.5px;
+  }
+
+  /*Redes sociales*/
+  .social-bar{
+    font-size: 2.0rem;
+    top: 37%;
+  }
+  .partFooter img {
+    width: 100%;
+  }
+  .button1{
+    width: 60%;
+  }
+  .products-section .wrapper{
+    padding-left: 5px;
+  }
+
+  .products-section .wrapper img {
+    height: 100%;
+    width: 100%;
+  }
+}

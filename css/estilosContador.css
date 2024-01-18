@@ -1,0 +1,46 @@
+/*.contador{
+    width: 24.7%;
+    text-align: center;
+    display: inline-block;
+}
+
+.contador_cantidad{
+    font-size: 30px;
+    margin: 10px 0;
+    font-weight: 900;
+}*/
+
+@keyframes aparecer{
+    0%{
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ocultar {
+    opacity: 0;
+}
+
+.animar{
+    animation: aparecer 1.3s;
+}
+
+.fa-facebook-square{
+    color: rgb(66, 103, 178);
+}
+
+.fa-youtube{
+    color: rgb(255, 0, 0);
+}
+
+.fa-twitter{
+    color: rgb(29, 161, 242);
+}
+
+.fa-code{
+    color: rgb(83, 84, 85);
+}

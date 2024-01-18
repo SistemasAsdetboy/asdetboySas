@@ -1,0 +1,46 @@
+/*Contiene los colores del mapa*/
+.containers{
+    background: rgb(214, 214, 214);
+    display: flex;
+    place-content: center;
+}
+
+.container{
+    width: 60%;
+}
+
+.container path{
+    fill : rgba(25, 214, 15, 0.974);
+    stroke: rgb(162, 209, 226);
+    stroke-width: 10%;
+}
+
+.container :hover {
+    fill: #E0FF00;
+}
+
+
+/**/
+@media screen and (max-width:600px) {
+    .container{
+        width: 95%;
+        height: 100%;
+    }
+    .navbar {
+        height: 30px;
+      }
+}
+
+@media screen and (max-width:800px) {
+    .container{
+        width: 95%;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .container{
+        width: 90%;
+        height: 100%;
+    }
+}
