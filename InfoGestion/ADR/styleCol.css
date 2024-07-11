@@ -1,0 +1,18 @@
+.mapadiv{
+
+    width: 100%;
+    height: auto;
+    margin-top: -190px;
+}
+
+.mapadiv path{
+    fill : rgba(80, 235, 59, 0.974);
+    stroke: rgb(0, 0, 0);
+    stroke-width: 1px;
+}
+
+.mapadiv path:hover{
+    fill : rgba(255, 251, 0, 0.974);
+    stroke: rgb(0, 0, 0);
+    stroke-width: 1px;
+} 

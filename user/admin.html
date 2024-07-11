@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de administrador</title>
+    
+    <!-- Favicons -->
+    <link href="../assets/img/Index/logoasdetboysas.png" rel="icon">
+    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link rel="stylesheet" href="../assets/css/globals.css" />
+    <link rel="stylesheet" href="../assets/css/admin.css" /> 
+</head>
+
+<body>
+  
+    <div class="frame"> 
+        <div class="div">
+            <div class="overlap">
+                <!-- Acá si aparece el contenido :)  -->
+                <div class="gestionContractual">
+                    
+                    <div class="modal" id="myModal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h1 class="card-title">Subir contrato</h1>
+                            <form id="uploadForm">
+                                <div class="form-group">
+                                    <label for="tipodocumento">Tipo de contrato:</label>
+                                    <select id="tipodocumento" class="form-control" required>
+                                        <option value="">Tipo de contrato</option>
+                                        <option value="Invitación pública">Invitación pública</option>
+                                        <option value="Invitación privada de varias ofertas">Invitación privada de varias ofertas</option>
+                                        <option value="Invitación privada de única oferta">Invitación privada de única oferta</option>
+                                        <option value="Convocatorias">Convocatorias</option>
+                                        <option value="PAA">PAA</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="añodoc">Año:</label>
+                                    <select id="añodoc" class="form-control" name="año" required>
+                                        <option value="">Año</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2020">2020</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2024">2024</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subfolder">Número del contrato:</label>
+                                    <input type="number" id="subfolder" class="form-control" placeholder="Número del contrato" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nombredoc">Nombre del documento:</label>
+                                    <input type="text" id="nombredoc" class="form-control" placeholder="Nombre del documento" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pdf-file">Seleccionar archivo PDF:</label>
+                                    <input type="file" id="pdf-file" class="form-control-file" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="button" value="Upload" id="upload" class="btn btn-primary">
+                                </div>
+                            </form>
+                        </div>
+                    </div>                    
+                
+
+                    <div class="subirContrato">
+                        <button class="boton-flotante" id="openModalBtn"> 
+                            <img src="https://img.icons8.com/fluency-systems-filled/48/FFFFFF/file-upload.png" alt="Subir contrato" />
+                        </button>
+                    </div>
+
+                    <div class="container">
+                      <h1>Gestión contractual</h1>
+                      <div class="filter-box">
+                          <div class="filter-bar">
+                              <div class="filter-container">
+                                  <label for="tipodoc">Tipo de contrato:</label>
+                                  <select id="tipodoc" placeholder="Tipo de contrato">
+                                      <option value="todos">Todos</option>
+                                  </select>
+                              </div>
+                              <div class="filter-container">
+                                  <label for="año">Año:</label>
+                                  <select id="ano" placeholder="Año">
+                                      <option value="todos">Todos</option>
+                                      <option value="2019">2019</option>
+                                      <option value="2020">2020</option>
+                                      <option value="2021">2021</option>
+                                      <option value="2022">2022</option>
+                                      <option value="2023">2023</option>
+                                      <option value="2024">2024</option>
+                                  </select>
+                              </div>
+                              <div class="filter-container">
+                                  <label for="subcarpeta">Contrato:</label>
+                                  <select id="subcarpeta" name="subcarpeta" disabled>
+                                      <option value="todos">Todos</option>
+                                      <!-- Las opciones de subcarpeta se llenarán dinámicamente -->
+                                  </select>
+                              </div>
+                          </div>
+                          <div class="result-box" id="result-box">
+                              <table id="tablaResultados" class="eliminar-elementos"> 
+                                  <thead>
+                                      <tr>
+                                          <th>Tipo de contrato</th>
+                                          <th>Año</th>
+                                          <th>Contrato</th>
+                                          <th>Documento</th>
+                                          <th>Archivo</th>
+                                          <th></th> 
+                                      </tr>
+                                  </thead>
+                                  <tbody id="resultList">
+                                      <!-- Aquí se muestran los datos y los archivos almacenados en la colección "Documentos gestión contractual" -->
+                                  </tbody>
+                              </table>
+                              <div class="no-results" id="noResults" style="display:none;">
+                                  <p>No se encontraron documentos que coincidan con los criterios de búsqueda.</p>
+                              </div>
+                              <div class="loader" id="loader"></div>
+                          </div>
+                      </div>
+                    </div>
+
+                </div>
+            </div>
+            <img class="logoasdetboysas" src="https://c.animaapp.com/lCks7jTe/img/logoasdetboysas-1@2x.png" />
+            <img class="line" src="https://c.animaapp.com/lCks7jTe/img/line-1.svg" />
+            <img class="img" src="https://c.animaapp.com/lCks7jTe/img/line-1.svg" />
+            <img class="line-2" src="https://c.animaapp.com/lCks7jTe/img/line-2.svg" />
+            <div class="group">
+                <div class="panel-principal" id="panelPrincipal">
+                    <div class="text-wrapper">Panel principal</div>
+                    <img class="hogar" src="https://c.animaapp.com/lCks7jTe/img/hogar-1@2x.png" />
+                </div>
+            </div>
+            <div class="group-2">
+                <div class="overlap-group" id="opc">
+                    <img class="line-3" src="https://c.animaapp.com/lCks7jTe/img/line-3.svg" />
+                    <div class="text-wrapper-2">SG-SST</div>
+                    <div class="text-wrapper-3">PESV</div>
+                </div>
+                <div class="text-wrapper-4">Sistemas de gestión</div>
+            </div>
+            <div class="group-3">
+                <div class="text-wrapper-5">Website</div>
+                <div id="opc">
+                    <div class="text-wrapper-6">Gestión contractual</div>
+                    <div class="text-wrapper-7">Informes de gestión</div>
+                </div>
+            </div>
+            <div class="group-4">
+                <div class="text-wrapper-8">Log out</div>
+                <img class="cerrar-sesion" src="https://c.animaapp.com/lCks7jTe/img/cerrar-sesion-1@2x.png" />
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../Firebase/firebase.js" defer> </script>
+    <script type="module" src="../TablaContratos.js"> </script>
+    <script type="module" src="../gestiondocs.js"> </script>
+    <script type="module" src="../user/logout.js" defer> </script>
+    <script type="module" src="../user/main.js"> </script>
+    
+
+    <script>
+        // Obtenemos el botón y el modal por su id
+        var openModalBtn = document.getElementById("openModalBtn");
+        var modal = document.getElementById("myModal");
+
+        // Añadimos un evento de clic al botón
+        openModalBtn.addEventListener("click", function() {
+            modal.style.display = "block"; // Mostramos el modal
+        });
+
+        // Obtenemos el elemento de cierre del modal y añadimos un evento de clic para cerrarlo
+        var closeModal = document.getElementsByClassName("close")[0];
+        closeModal.addEventListener("click", function() {
+            modal.style.display = "none"; // Ocultamos el modal
+        });
+
+        // También cerramos el modal si el usuario hace clic fuera de él
+        window.addEventListener("click", function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none"; // Ocultamos el modal
+            }
+        });
+    </script>
+</body>
+</html>

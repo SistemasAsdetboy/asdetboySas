@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de gestión</title>
+    <!-- Incluye Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Informe de gestión</h1>
+
+        <form>
+
+            <div class="form-group">
+                <label for="titulo">Título:</label>
+                <input type="text" class="form-control" id="titulo" name="titulo" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nombreMunicipio">Nombre del municipio:</label>
+                <input type="text" class="form-control" id="nombreMunicipio" name="nombreMunicipio" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Introduccion">Introducción:</label>
+                <input type="text" class="form-control" id="Introduccion" name="Introduccion" required>
+            </div>
+
+            <div class="form-group">
+                <label for="anioFundacion">Año de fundación:</label>
+                <input type="text" class="form-control" id="anioFundacion" name="anioFundacion" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Fundador">Fundador:</label>
+                <input type="text" class="form-control" id="Fundador" name="Fundador" required>
+            </div> 
+
+            <div class="form-group">
+                <label for="anioIntervencion">Año de Intervención:</label>
+                <input type="text" class="form-control" id="anioIntervencion" name="anioIntervencion" required>
+            </div>
+
+            <div class="form-group">
+                <label for="IntervencionRealizada">Intervención Realizada:</label>
+                <input type="text" class="form-control" id="IntervencionRealizada" name="IntervencionRealizada" required>
+            </div> 
+
+            <div class="form-group">
+                <label for="TablaIntervencion">Subir tabla de intervención:</label>
+                <input type="file" class="form-control-file" id="TablaIntervencion" name="TablaIntervencion" accept="image/*">
+            </div>
+
+            <div class="form-group">
+                <label for="MapaIntervencion">Subir mapa de intervención:</label>
+                <input type="file" class="form-control-file" id="MapaIntervencion" name="MapaIntervencion" accept="image/*">
+            </div> 
+
+            <div class="form-group">
+                <label for="DescripcionMapa">Descripción de mapa:</label>
+                <input type="text" class="form-control" id="DescripcionMapa" name="DescripcionMapa" required>
+            </div> 
+
+            <div class="form-group">
+                <label for="EvidenciaFotografica">Subir evidencia fotográfica:</label>
+                <input type="file" class="form-control-file" id="EvidenciaFotografica" name="EvidenciaFotografica[]" accept="image/*" multiple>
+            </div>
+
+            <button type="button" value="subir" id="subir" class="btn btn-primary" > Enviar todo </button>
+        </form>
+    </div>
+
+    <!-- Incluye Bootstrap JS (Opcional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script type="module" src="../Firebase/firebase.js"></script>
+    <script type="module" src="FormGestion.js"></script>
+
+
+</body>
+</html>
