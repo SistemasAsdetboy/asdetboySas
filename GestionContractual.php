@@ -81,7 +81,7 @@ while($aData = $oQuery->fetch_array()){
                 </ul>
               </li>
 
-              <li><a class="nav-link" href="GestionContractual.html">Gestión contractual</a></li>
+              <li><a class="nav-link" href="GestionContractual.php">Gestión contractual</a></li>
 
               <li><a class="nav-link" href="Contactanos.html">Atención al público</a></li>
               
