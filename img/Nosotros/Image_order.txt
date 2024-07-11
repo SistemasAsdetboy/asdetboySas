@@ -1,6 +1,0 @@
-1.Alta gerencia
-2.Departemento Administrativo
-3.Departamento Jurídico y de contratación 
-4.Departamento tecnico y operativo
-5.Departamento de negocios, mercadeo y publicidad
-6.Departamento contable financiero
