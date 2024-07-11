@@ -1,0 +1,78 @@
+/* Estilos personalizados para el carrusel */
+#imageCarousel {
+    margin-top: 20px;
+    background-color: #f7f7f7; /* Fondo del carrusel */
+  }
+  
+  .carousel-inner {
+    border-radius: 5px; /* Bordes redondeados para las imágenes */
+  }
+  
+  .carousel-control-prev, .carousel-control-next {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente para los controles */
+    color: #fff; /* Color del icono de control */
+    border-radius: 5px; /* Bordes redondeados para los controles */
+  }
+  
+  .carousel-indicators {
+    bottom: 10px; /* Posición de los indicadores */
+  }
+  
+  .carousel-indicators li {
+    background-color: #4fdb4f; /* Color de fondo de los indicadores */
+    border: 1px solid #4fdb4f; /* Borde de los indicadores */
+  }
+  
+  .carousel-indicators .active {
+    background-color: #4fdb4f; /* Color de fondo del indicador activo */
+  }
+  
+  /* Centra el carrusel en la sección #about */
+#about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  #imageCarousel {
+    margin-top: 20px;
+    background-color: #f7f7f7; /* Fondo del carrusel */
+  }
+  
+  /* Estilos personalizados para el carrusel */
+#imageCarousel {
+    margin-top: 20px;
+    background-color: transparent; /* Fondo transparente para ocultar el fondo del carrusel */
+  }
+  
+  .carousel-inner {
+    border-radius: 5px; /* Bordes redondeados para las imágenes */
+    overflow: hidden; /* Oculta el contenido que se desborda */
+  }
+  
+  .carousel-control-prev, .carousel-control-next {
+    background-color: rgba(0, 0, 0, 0.2); /* Fondo semi-transparente para los controles */
+    color: #fff; /* Color del icono de control */
+    border-radius: 50%; /* Bordes redondeados para los controles */
+    width: 30px; /* Ancho más pequeño para los controles */
+    height: 30px; /* Altura más pequeña para los controles */
+    font-size: 20px; /* Tamaño de fuente más pequeño para los controles */
+    line-height: 30px; /* Alineación vertical del texto en los controles */
+    top: 50%; /* Posición vertical centrada */
+    transform: translateY(-50%); /* Centra verticalmente los controles */
+  }
+  
+  .carousel-indicators {
+    bottom: 10px; /* Posición de los indicadores */
+  }
+  
+  .carousel-indicators li {
+    background-color: #4fdb4f; /* Color de fondo de los indicadores */
+    border: 1px solid #4fdb4f; /* Borde de los indicadores */
+  }
+  
+  .carousel-indicators .active {
+    background-color: #4fdb4f; /* Color de fondo del indicador activo */
+  }
+  

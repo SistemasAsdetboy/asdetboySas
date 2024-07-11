@@ -1,0 +1,591 @@
+body{
+  background-color: #d0f1bb;
+  font-family: "Roboto", Helvetica;
+  color: #606e57;
+} 
+
+h1{
+  font-family: "Roboto", Helvetica;
+  font-weight: 600;
+  color: #606e57;
+  font-size: 2vw;
+  line-height: 4vw;
+  text-align: left;
+  padding: 1vw;
+}
+
+a {
+  color: #4aab0a;
+  transition: 0.5s;
+  text-decoration: none;
+}
+
+select{
+  font-family: "Roboto", Helvetica;
+  color: #606e57;
+}
+
+.frame .overlap {
+  width: 80%;
+  height: 96.5vh;
+  top: 2%;
+  left: 19%;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 20px 2px #616f5780;
+  position: absolute;
+  border-radius: 1.5vw;
+  -webkit-border-radius: 1.5vw;
+  -moz-border-radius: 1.5vw;
+  -ms-border-radius: 1.5vw;
+  -o-border-radius: 1.5vw;
+}
+  
+.frame .logoasdetboysas {
+  position: absolute;
+  width: 10%; 
+  height: auto; 
+  max-width: 200px; 
+  top: 4%; 
+  left: 4%; 
+  
+}
+
+  .frame .line {
+    position: absolute;
+    width: 15.5%; 
+    height: 0.1vh; 
+    top: 27%; 
+    left: 1.5%; 
+    object-fit: cover;
+  }
+  
+  .frame .img {
+    position: absolute;
+    width: 15.5%; 
+    height: 0.1vh; 
+    top: 18%; 
+    left: 1.5%; 
+    object-fit: cover;
+  }
+  
+  .frame .line-2 {
+    position: absolute;
+    width: 15.5%; 
+    height: 0.1vh; 
+    top: 55%; 
+    left: 1.5%; 
+    object-fit: cover;
+  }
+  
+  .frame .group {
+    position: absolute;
+    width: 15.5%; 
+    height: 5vh; 
+    top: 20%; 
+    left: 1.5%;
+    cursor: pointer;
+  } 
+
+  .group:hover{
+    background-color: rgba(90, 124, 101, 0.3);
+    position: absolute;
+    border-radius: 20px;
+    
+  } 
+
+
+
+  .frame .text-wrapper {
+    position: absolute;
+    width: auto;
+    left: 29%; 
+    font-family: "Roboto", Helvetica;
+    font-weight: 400;
+    color: #606e57;
+    font-size: 1.2vw; 
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+    top: 20%;
+  }
+  
+  .frame .hogar {
+    position: absolute;
+    width: 8%;
+    height: auto;
+    top: 17%;
+    left: 15%;
+    object-fit: cover;
+  }
+
+  .panel-principal.selected{
+
+    background-color: rgba(90, 124, 101, 0.3);
+    position: absolute;
+    border-radius: 20px;
+  }
+  
+  .frame .group-2 {
+   position: absolute;
+   width: 19%; 
+   height: 30vh; 
+   top: 58%; 
+   left: 1.8%; 
+  }
+  
+  .frame .overlap-group {
+    width: 80%;
+    height: 60%;
+    top: 20%;
+    left: 0;
+    background-color: #9fca83;
+    box-shadow: 0px 4px 10px #616f5780;
+    position: absolute;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+  
+  .frame .line-3 {
+
+    position: absolute;
+    width: 100%; 
+    height: 0.1vh; 
+    top: 52%; 
+    left: 0; 
+    object-fit: cover;
+  }
+  
+  .frame .text-wrapper-2 {
+    position: absolute;
+    width: 100%;
+    height: 9.5vh;
+    left: 0; 
+    top: 0;
+    font-family: "Roboto", Helvetica;
+    font-weight: 400;
+    color: #606e57;
+    font-size: 1.2vw; 
+    letter-spacing: 0;
+    line-height: 4em;
+    white-space: nowrap;
+    cursor: pointer;
+    text-indent: 35%;
+
+  }
+
+  .frame .text-wrapper-2:hover{
+    background-color: rgba(90, 124, 101, 0.3);
+    position: absolute;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+
+  }
+  
+  .frame .text-wrapper-3 {
+    position: absolute;
+    width: 100%;
+    height: 8.8vh;
+    left: 0; 
+    top: 52%;
+    font-family: "Roboto", Helvetica;
+    font-weight: 400;
+    color: #606e57;
+    font-size: 1.2vw; 
+    letter-spacing: 0;
+    line-height: 3.5em;
+    white-space: nowrap;
+    cursor: pointer;
+    text-indent: 38%;
+  } 
+
+  .frame .text-wrapper-3:hover{
+    background-color: rgba(90, 124, 101, 0.3);
+    position: absolute;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius:  20px;
+  }
+  
+  .frame .text-wrapper-4 {
+    position: absolute;
+    width: auto;
+    max-width: 70%; 
+    left: 4%; 
+    font-family: "Roboto", Helvetica;
+    font-weight: 400;
+    color: #606e57;
+    font-size: 1vw; 
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .frame .group-3 {
+    position: absolute;
+    width: 40%; 
+    height: 20vh; 
+    top: 29%; 
+   
+  }
+
+  .frame .text-wrapper-5 {
+    position: absolute;
+    width: auto;
+    max-width: 70%; 
+    left: 5%; 
+    font-family: "Roboto", Helvetica;
+    font-weight: 400;
+    color: #606e57;
+    font-size: 1vw; 
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+/* Estilo inicial */
+.frame .text-wrapper-6 {
+  position: absolute;
+  width: 38%;
+  height: 5vh;
+  left: 4%;
+  top: 30%;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: #606e57;
+  font-size: 1.2vw; 
+  letter-spacing: 0;
+  line-height: 1.8em;
+  white-space: nowrap;
+  cursor: pointer;
+  text-indent: 5%;
+  
+}
+
+/* Cambio al pasar el ratón sobre el elemento */
+.frame .text-wrapper-6:hover {
+
+  background-color: rgba(90, 124, 101, 0.3);
+  border-radius: 20px;
+  position: absolute;
+  
+}
+
+  
+  .frame .text-wrapper-7 {
+    position: absolute;
+    width: 38%;
+    height: 5vh;
+    left: 4%;
+    top: 60%;
+    font-family: "Roboto", Helvetica;
+    font-weight: 400;
+    color: #606e57;
+    font-size: 1.2vw; 
+    letter-spacing: 0;
+    line-height: 1.8em;
+    white-space: nowrap;
+    cursor: pointer;
+    text-indent: 5%;
+  }
+
+.frame .text-wrapper-7:hover{
+
+  background-color: rgba(90, 124, 101, 0.3);
+  border-radius: 20px;
+  position: absolute;
+  
+
+}
+  
+  .frame .group-4 {
+  cursor: pointer;
+  position: absolute;
+  width: 5%; 
+  height: 2vh; 
+  top: 96%;
+  left: 1%; 
+  }
+  
+  .frame .text-wrapper-8 {
+    position: absolute;
+    width: auto;
+    max-width: 70%; 
+    left: 35%;
+    font-family: "Roboto", Helvetica;
+    font-weight: 400;
+    color: #606e57;
+    font-size: 1.2vw; 
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .frame .cerrar-sesion {
+    position: absolute;
+    width: 25%;
+    height: auto;
+    left: 4%;
+    object-fit: cover;
+  }
+  
+
+.pagout {
+  position: absolute;
+  width: 47%; 
+  height: auto; 
+  top: 20%; 
+  left: 50%; 
+}
+
+
+.obras {
+  position: absolute;
+  width: 70%; 
+  top: 13%;
+  left: 5%;
+  font-family: "Roboto", Helvetica;
+  font-weight: 900;
+  font-style: italic;
+  color: #606e57;
+  font-size: 2.5vw;
+  line-height: 4vw;
+}
+
+.seccNo {
+  position: absolute;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: #606e57;
+  font-size: 1.5vw; 
+  letter-spacing: 0;
+  white-space: nowrap;
+  width: 0; 
+  top: 6%; 
+  left: 6%; 
+} 
+
+/* Tabla contratos */
+
+.container {
+  text-align: center;
+  width: 90%; /* Ampliar al ancho de la pantalla */
+  max-width: 1200px; /* Establecer un ancho máximo */
+  margin: 20px auto; /* Centrar horizontalmente con espacio en la parte superior */
+}
+
+.filter-box {
+ 
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  max-height: 500px;
+  
+}
+
+.filter-bar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filter-container {
+  margin-right: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.filter-container label {
+  margin-right: 10px;
+}
+
+.filter-container select,
+.filter-container input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+} 
+
+/* Estilos para el resultado */
+.result-box {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.144);
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.loader {
+  border: 16px solid #f3f3f3; 
+  border-top: 16px solid #4aab0a; 
+  border-radius: 50%;
+  width: 80px; 
+  height: 80px; 
+  animation: spin 1s linear infinite;
+  margin: auto;
+  margin-top: 70px;
+  margin-bottom: 50px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    
+  }
+  100% {
+    transform: rotate(360deg);
+    
+  }
+}
+
+/* Oculta el loader por defecto */
+.loader.hidden {
+  display: none;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+@media screen and (max-width: 600px) {
+  th, td {
+      display: block;
+      width: 100%;
+  }
+}
+.filtro-contenido, .filtro-documentacion {
+  display: none;
+}
+
+thead th {
+  position: sticky;
+  top: -20px;
+  background-color: #ffffff; /* Color de fondo */
+  font-weight: bold; /* Negrita */
+  z-index: 1;
+  height: 30px;
+  margin: 0;
+  padding: 15px;
+
+}
+
+.eliminar-icono {
+
+cursor: pointer;
+margin-top: 10px;
+
+}
+
+/* Estilos para el boton*/
+
+.boton-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4897eb;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.288);
+  z-index: 1000;
+}
+
+.boton-flotante:hover {
+  width: 85px;
+  height: 85px;
+}
+
+.modal {
+  display: none; /* Para ocultar el modal inicialmente */
+  position: fixed; /* Se fija en la ventana del navegador */
+  z-index: 1000; /* Por encima de todo */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro translúcido */
+}
+
+.modal-content {
+  background-color: white; /* Fondo blanco */
+  margin: 8% auto; /* Centrado vertical y horizontal */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  border-radius: 15px;
+  
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Estilos para el formulario dentro del modal */
+.modal-content form {
+  
+  max-width: 500px; 
+  margin: 5% auto; 
+
+}
+
+
+.modal-content form .form-group {
+  margin-bottom: 6%;
+}
+
+.modal-content form #upload {
+  margin-left: 25%;
+  margin-top: 5%;
+  width: 50%; 
+}
+
+/* Estilos para los botones dentro del formulario */
+.modal-content form .btn {
+  
+  background-color: #4aab0a; 
+  border: none; 
+  color: white; 
+  padding: 10px 20px; 
+  text-align: center;
+  text-decoration: none; 
+  display: inline-block;
+  font-size: 16px; 
+  margin: 4px 2px; 
+  cursor: pointer; 
+  border-radius: 5px; 
+  transition: background-color 0.3s;
+}
+
+.modal-content form .btn:hover {
+  background-color: #29612c; /* Color de fondo verde oscuro */
+}
+
