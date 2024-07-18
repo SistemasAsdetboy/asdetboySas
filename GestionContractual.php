@@ -7,8 +7,70 @@ $cQuery = "SELECT * FROM DOCGES WHERE REGESTXX = \"ACTIVO\" ORDER BY DOCLAS DESC
 $oQuery = $conexion->query($cQuery);
 $mData = array();
 while($aData = $oQuery->fetch_array()){
-  $mData[$aData["DOCLAS"]][$aData["DOCYEA"]][$aData["DOCNUM"]][$aData["DOCNOM"]] = $aData["DOPATH"];
+  if ($aData["DOCPRO"] == "") {
+    $mData[$aData["DOCLAS"]][$aData["DOCYEA"]][$aData["DOCNUM"]][$aData["DOCNOM"]] = $aData["DOPATH"];
+  } else {
+    $nuevoDocNom = "{$aData["DOCNOM"]} Otro Si No. {$aData["DOCPRO"]} {$aData["DOCTYP"]}";
+    $mData[$aData["DOCLAS"]][$aData["DOCYEA"]][$aData["DOCNUM"]][$nuevoDocNom] = $aData["DOPATH"];
+  }
 }
+
+$mData = f_filtroPrimerNivel($mData);
+
+function f_filtroPrimerNivel($mArchivos = array()) {
+  $mReturn                                          = array();
+  $mReturn["Invitacion privada de varias ofertas"]  = $mArchivos["Invitacion privada de varias ofertas"];
+  $mReturn["Invitación privada de unica oferta"]    = organizarDocumentos($mArchivos["Invitación privada de unica oferta"]);
+  $mReturn["Convocatoria"]                          = $mArchivos["Convocatoria"];
+  $mReturn["PAA"]                                   = $mArchivos["PAA"];
+  $mReturn["Contratacion directa"]                  = $mArchivos["Contratacion directa"];
+  return $mReturn;
+}
+
+function organizarDocumentos($mArchivos) {
+  $orden = [
+    "Estudio previo",
+    "Matriz de riesgo",
+    "Estudio de mercado",
+    "Orden de servicios",
+    "Acta de aprobacion de poliza",
+    "Acta de inicio"
+  ];
+
+  foreach ($mArchivos as $year => &$docsByYear) {
+    foreach ($docsByYear as $num => &$docsByNum) {
+      $docsOrganizados = [];
+      $otrosDocs = [];
+      $especialDocs = [];
+
+      foreach ($orden as $key) {
+        foreach ($docsByNum as $docNom => $path) {
+          if (strpos($docNom, $key) !== false) {
+            if (($key == "Estudio previo" || $key == "Orden de servicios") && strlen($docNom) > strlen($key)) {
+              $especialDocs[$docNom] = $path;
+            } else {
+              $docsOrganizados[$docNom] = $path;
+            }
+            unset($docsByNum[$docNom]);
+          }
+        }
+      }
+
+      foreach ($docsByNum as $key => $path) {
+        $otrosDocs[$key] = $path;
+      }
+
+      foreach ($especialDocs as $key => $path) {
+        $docsOrganizados[$key] = $path;
+      }
+
+      $docsByNum = array_merge($docsOrganizados, $otrosDocs);
+    }
+  }
+
+  return $mArchivos;
+}
+
 ?>
 
 <head>
