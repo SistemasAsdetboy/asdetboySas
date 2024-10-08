@@ -28,44 +28,79 @@ function f_filtroPrimerNivel($mArchivos = array()) {
 }
 
 function organizarDocumentos($mArchivos) {
+  // Definir el orden y los nombres que se mostrarán al usuario
   $orden = [
-    "Estudio previo",
-    "Matriz de riesgo",
-    "Estudio de mercado",
-    "Orden de servicios",
-    "Acta de aprobacion de poliza",
-    "Acta de inicio"
+      "Estudio previo" => "Estudio Previo",
+      "Matriz de riesgo" => "Matriz de Riesgo",
+      "Estudio de mercado" => "Estudio de Mercado",
+      "Orden de servicios" => "Orden de Servicios",
+      "Acta de aprobacion de poliza" => "Acta de Aprobación de Póliza",
+      "Acta de inicio" => "Acta de Inicio",
+      // Los "Otro Sí" se agregarán aquí después de ser ordenados.
+      "Acta de Suspension" => "Acta de Suspensión",
+      "Acta de Reinicio" => "Acta de Reinicio",
+      "Acto Administrativo De Declaracion Desierto" => "Acto Administrativo de Declaración Desierto",
+      "Acta de liquidacion" => "Acta de Liquidación"
   ];
 
   foreach ($mArchivos as $year => &$docsByYear) {
-    foreach ($docsByYear as $num => &$docsByNum) {
-      $docsOrganizados = [];
-      $otrosDocs = [];
-      $especialDocs = [];
+      foreach ($docsByYear as $num => &$docsByNum) {
+          $docsOrganizados = [];
+          $otrosDocs = [];
+          $especialDocs = [];
+          $otroSiDocs = [];
 
-      foreach ($orden as $key) {
-        foreach ($docsByNum as $docNom => $path) {
-          if (strpos($docNom, $key) !== false) {
-            if (($key == "Estudio previo" || $key == "Orden de servicios") && strlen($docNom) > strlen($key)) {
-              $especialDocs[$docNom] = $path;
-            } else {
-              $docsOrganizados[$docNom] = $path;
-            }
-            unset($docsByNum[$docNom]);
+          // Recorrer los documentos y separar los "Otro Sí" y otros documentos
+          foreach ($docsByNum as $docNom => $path) {
+              if (preg_match('/Otro Si No\. (\d+)/', $docNom, $matches)) {
+                  // Extraer el número consecutivo y almacenar el documento en $otroSiDocs
+                  $otroSiDocs[(int)$matches[1]][] = ["name" => $docNom, "path" => $path];
+              } else {
+                  $otrosDocs[$docNom] = $path;
+              }
           }
-        }
-      }
 
-      foreach ($docsByNum as $key => $path) {
-        $otrosDocs[$key] = $path;
-      }
+          // Ordenar los "Otro Si" basados en el número consecutivo
+          ksort($otroSiDocs);
+          foreach ($otroSiDocs as $otroSiGroup) {
+              foreach ($otroSiGroup as $doc) {
+                  // Renombrar el documento Otro Si para tener capitalización correcta
+                  $nuevoNombre = str_replace(
+                      ["otro si", "no."],
+                      ["Otro Si", "No."],
+                      ucwords(strtolower($doc['name']))
+                  );
+                  $especialDocs[$nuevoNombre] = $doc['path'];
+              }
+          }
 
-      foreach ($especialDocs as $key => $path) {
-        $docsOrganizados[$key] = $path;
-      }
+          // Iniciar la organización de documentos basados en el orden definido
+          $docsOrganizadosFinal = [];
 
-      $docsByNum = array_merge($docsOrganizados, $otrosDocs);
-    }
+          foreach ($orden as $tipoDoc => $nombreAMostrar) {
+              // Si el documento existe en la lista de otros documentos, agregarlo en el orden correcto
+              foreach ($otrosDocs as $docNom => $path) {
+                  if (stripos($docNom, $tipoDoc) !== false) {
+                      $docsOrganizadosFinal[$nombreAMostrar] = $path;
+                      unset($otrosDocs[$docNom]);  // Eliminar para evitar duplicados
+                      break;
+                  }
+              }
+
+              // Insertar los "Otro Sí" justo después de "Acta de Inicio"
+              if ($nombreAMostrar == "Acta de Inicio") {
+                  $docsOrganizadosFinal = array_merge($docsOrganizadosFinal, $especialDocs);
+              }
+          }
+
+          // Agregar cualquier documento restante que no esté en $orden
+          foreach ($otrosDocs as $docNom => $path) {
+              $docsOrganizadosFinal[$docNom] = $path;
+          }
+
+          // Actualizar la lista de documentos organizados para el número de contrato
+          $docsByNum = $docsOrganizadosFinal;
+      }
   }
 
   return $mArchivos;
