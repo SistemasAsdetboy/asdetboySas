@@ -194,104 +194,118 @@ function organizarDocumentos($mArchivos) {
 
 <!-- ======= Carrousell Section ======= -->
 <section id="hero">
-  <div class="hero-container">
-    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+    <div class="hero-container">
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 
         <ol id="hero-carousel-indicators" class="carousel-indicators"></ol>
 
         <div class="carousel-inner" role="listbox">
 
-            <div class="carousel-item active">
-                <video autoplay muted loop poster="assets/img/Video/Servicios.mp4">
-                    <source src="assets/img/Video/Servicios.mp4" type="video/mp4">
-                    Tu navegador no admite el elemento de video.
-                </video>
-                <div class="carousel-container">
-                    <div class="container">
-                        <h2 class="animate__animated animate__fadeInDown">Somos Sus Mejores Aliados</h2>
-                        <p class="animate__animated animate__fadeInUp">"Somos sus mejores aliados por excelencia, brindando soluciones eficientes innovadoras y dinámicas."</p>
-                        <a href="/NewPageAsdetboy-main/Nosotros.html" class="btn-get-started scrollto animate__animated animate__fadeInUp">Ver más</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="carousel-item">
-                <video autoplay muted loop poster="assets/img/Video/2.mp4">
-                    <source src="assets/img/Video/2.mp4" type="video/mp4">
-                    Tu navegador no admite el elemento de video.
-                </video>
-                <div class="carousel-container">
-                    <div class="container">
-                        <h2 class="animate__animated animate__fadeInDown">Nuestros Servicios</h2>
-                        <p class="animate__animated animate__fadeInUp">
-                            "ASDETBOY ofrece servicios integrales que optimizan recursos y procesos, respaldados por constante innovación y compromiso con la responsabilidad social, con el objetivo de agregar un valor excepcional a su organización en todas las etapas de su trayectoria."</p>
-                        <a href="/NewPageAsdetboy-main/Servicios.html" class="btn-get-started scrollto animate__animated animate__fadeInUp">Ver más</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Repite esta estructura para los demás elementos -->
-
-            <div class="carousel-item">
-              <video autoplay muted loop poster="assets/img/Video/1.mp4">
-                  <source src="assets/img/Video/1.mp4" type="video/mp4">
-                  Tu navegador no admite el elemento de video.
-              </video>
-              <div class="carousel-container">
-                  <div class="container">
-                      <h2 class="animate__animated animate__fadeInDown">Nuestros Equipo</h2>
-                      <p class="animate__animated animate__fadeInUp">
-                        "En ASDETBOY, nuestro equipo altamente capacitado y diverso aborda desafíos complejos con creatividad y eficacia, proporcionando soluciones personalizadas respaldadas por un enfoque colaborativo y un compromiso inquebrantable con la excelencia en el servicio."</p>
-                      <a href="/NewPageAsdetboy-main/OrganigramaCoorporativo.html" class="btn-get-started scrollto animate__animated animate__fadeInUp">Ver más</a>
-                  </div>
+          <div class="carousel-item active">
+            <video autoplay muted loop poster="assets/img/Video/Servicios.mp4">
+              <source src="assets/img/Video/Servicios.mp4" type="video/mp4">
+              Tu navegador no admite el elemento de video.
+            </video>
+            <div class="carousel-container">
+              <div class="container">
+                <h2 class="animate__animated animate__fadeInDown">Somos Sus Mejores Aliados</h2>
+                <p class="animate__animated animate__fadeInUp">"Somos sus mejores aliados por excelencia, brindando
+                  soluciones eficientes innovadoras y dinámicas."</p>
+                <a href="./Nosotros.html" class="btn-get-started scrollto animate__animated animate__fadeInUp">Ver
+                  más</a>
               </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <video autoplay muted loop poster="assets/img/Video/2.mp4">
+              <source src="assets/img/Video/2.mp4" type="video/mp4">
+              Tu navegador no admite el elemento de video.
+            </video>
+            <div class="carousel-container">
+              <div class="container">
+                <h2 class="animate__animated animate__fadeInDown">Nuestros Servicios</h2>
+                <p class="animate__animated animate__fadeInUp">
+                  "ASDETBOY ofrece servicios integrales que optimizan recursos y procesos, respaldados por constante
+                  innovación y compromiso con la responsabilidad social, con el objetivo de agregar un valor excepcional
+                  a su organización en todas las etapas de su trayectoria."</p>
+                <a href="./Servicios.html" class="btn-get-started scrollto animate__animated animate__fadeInUp">Ver
+                  más</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Repite esta estructura para los demás elementos -->
+
+          <div class="carousel-item">
+            <video autoplay muted loop poster="assets/img/Video/1.mp4">
+              <source src="assets/img/Video/1.mp4" type="video/mp4">
+              Tu navegador no admite el elemento de video.
+            </video>
+            <div class="carousel-container">
+              <div class="container">
+                <h2 class="animate__animated animate__fadeInDown">Nuestro Equipo</h2>
+                <p class="animate__animated animate__fadeInUp">
+                  "En ASDETBOY, nuestro equipo altamente capacitado y diverso aborda desafíos complejos con creatividad
+                  y eficacia, proporcionando soluciones personalizadas respaldadas por un enfoque colaborativo y un
+                  compromiso inquebrantable con la excelencia en el servicio."</p>
+                <a href="./OrganigramaCoorporativo.html"
+                  class="btn-get-started scrollto animate__animated animate__fadeInUp">Ver más</a>
+              </div>
+            </div>
           </div>
 
           <div class="carousel-item">
             <video autoplay muted loop poster="assets/img/Video/3.mp4">
-                <source src="assets/img/Video/3.mp4">
-                Tu navegador no admite el elemento de video.
+              <source src="assets/img/Video/3.mp4">
+              Tu navegador no admite el elemento de video.
             </video>
             <div class="carousel-container">
-                <div class="container">
-                    <h2 class="animate__animated animate__fadeInDown">Proyectos Realizados</h2>
-                    <p class="animate__animated animate__fadeInUp">
-                      "En ASDETBOY, nuestros proyectos exitosos abarcan diversos sectores, destacándose por soluciones personalizadas, eficiencia y colaboración. Nuestro portafolio refleja nuestro compromiso con la excelencia e innovación en la satisfacción de las necesidades de nuestros clientes."</p>
-                    <a href="/NewPageAsdetboy-main/Portafolio.html" class="btn-get-started scrollto animate__animated animate__fadeInUp">Ver más</a>
-                </div>
+              <div class="container">
+                <h2 class="animate__animated animate__fadeInDown">Proyectos Realizados</h2>
+                <p class="animate__animated animate__fadeInUp">
+                  "En ASDETBOY, nuestros proyectos exitosos abarcan diversos sectores, destacándose por soluciones
+                  personalizadas, eficiencia y colaboración. Nuestro portafolio refleja nuestro compromiso con la
+                  excelencia e innovación en la satisfacción de las necesidades de nuestros clientes."</p>
+                <a href="./Portafolio.html" class="btn-get-started scrollto animate__animated animate__fadeInUp">Ver
+                  más</a>
+              </div>
             </div>
-        </div>
+          </div>
 
-        <div class="carousel-item">
-          <video autoplay muted loop poster="assets/img/Video/4.mp4">
+          <div class="carousel-item">
+            <video autoplay muted loop poster="assets/img/Video/4.mp4">
               <source src="assets/img/Video/4.mp4" type="video/mp4">
               Tu navegador no admite el elemento de video.
-          </video>
-          <div class="carousel-container">
+            </video>
+            <div class="carousel-container">
               <div class="container">
-                  <h2 class="animate__animated animate__fadeInDown">Informe de Gestión</h2>
-                  <p class="animate__animated animate__fadeInUp">
-                    "ASDETBOY se destaca por su compromiso constante con la excelencia, innovación y responsabilidad social en la administración de productos y servicios, adaptándose a las cambiantes dinámicas del mercado y promoviendo prácticas sostenibles."</p>
-                  <a href="/NewPageAsdetboy-main/InformeGestion.html" class="btn-get-started scrollto animate__animated animate__fadeInUp">Ver más</a>
+                <h2 class="animate__animated animate__fadeInDown">Informe de Gestión</h2>
+                <p class="animate__animated animate__fadeInUp">
+                  "ASDETBOY se destaca por su compromiso constante con la excelencia, innovación y responsabilidad
+                  social en la administración de productos y servicios, adaptándose a las cambiantes dinámicas del
+                  mercado y promoviendo prácticas sostenibles."</p>
+                <a href="./InformeGestion.html" class="btn-get-started scrollto animate__animated animate__fadeInUp">Ver
+                  más</a>
               </div>
+            </div>
           </div>
-      </div>
 
         </div>
 
         <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
         </a>
 
         <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
-            <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
         </a>
 
+      </div>
     </div>
-</div>
 
-</section>
-<!-- End Carrousell -->
+  </section><!-- End Carrousell -->
+
 
 <main id="main">
   <section id="about">
@@ -395,7 +409,7 @@ function organizarDocumentos($mArchivos) {
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="footer-top">
-      <div class="container" >
+      <div class="container">
         <div class="row" style="text-align: center;">
           <h3>ASDETBOY</h3>
           <section id="Footter" class="section-bg">
@@ -411,34 +425,37 @@ function organizarDocumentos($mArchivos) {
                 <div class="col-md-4">
                   <div class="Footter-phone">
                     <i class="bi bi-phone"></i>
-                    <h3>Numero de telefono</h3>
-                    <p><a href="https://api.whatsapp.com/send/?phone=573102772887&text=Hola&type=phone_number&app_absent=0">+57 310 2772887</a></p>
+                    <h3>Número de telefono</h3>
+                    <p><a
+                        href="https://api.whatsapp.com/send/?phone=573168174458&text=Hola&type=phone_number&app_absent=0">+57
+                        316 8174458</a></p>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="Footter-email">
                     <i class="bi bi-envelope"></i>
                     <h3>Email</h3>
-                    <p><a href="mailto:info@example.com">Asdetboysas@gmail.com</a></p>
+                    <p><a href="mailto:gerenciaasdetboysas@gmail.com">gerenciaasdetboysas@gmail.com</a></p>
                   </div>
                 </div>
-              </div>      
+              </div>
             </div>
           </section>
         </div>
       </div>
-        <div class="social-links" style="text-align: center;">
-          <a href="https://api.whatsapp.com/send/?phone=573102772887&text=Hola&type=phone_number&app_absent=0" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
-          <a href="https://www.facebook.com/asdetboysas" class="facebook"><i class="bi bi-facebook"></i></a>
-          <a href="https://www.instagram.com/asdetboysas/" class="instagram"><i class="bi bi-instagram"></i></a>
-        </div>
+      <div class="social-links" style="text-align: center;">
+        <a href="https://api.whatsapp.com/send/?phone=573168174458&text=Hola&type=phone_number&app_absent=0"
+          class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+        <a href="https://www.facebook.com/asdetboysas" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/asdetboysas/" class="instagram"><i class="bi bi-instagram"></i></a>
+      </div>
     </div>
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong>Asdetboy S.A.S </strong>Derechos Reservados
+        &copy; Copyright <strong>Asdetboy S.A.S 2024 </strong>Derechos Reservados
       </div>
       <div class="credits">
-       Creado por <a href=" ">Asdetboy S.A.S</a>
+        Creado por <a href=" ">Asdetboy S.A.S</a>
       </div>
     </div>
   </footer>
