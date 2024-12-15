@@ -435,7 +435,7 @@ function organizarDocumentos($mArchivos) {
                   <div class="Footter-email">
                     <i class="bi bi-envelope"></i>
                     <h3>Email</h3>
-                    <p><a href="mailto:gerenciaasdetboysas@gmail.com">gerenciaasdetboysas@gmail.com</a></p>
+                    <p><a href="mailto:gerencia@tierrasua.com">gerencia@tierrasua.com</a></p>
                   </div>
                 </div>
               </div>
