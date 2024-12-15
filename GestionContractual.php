@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php 
+<?php
 include("conexion.php");
 $cQuery = "SELECT * FROM DOCGES WHERE REGESTXX = \"ACTIVO\" ORDER BY DOCLAS DESC, DOCYEA DESC, DOCNUM DESC";
 $oQuery = $conexion->query($cQuery);
 $mData = array();
-while($aData = $oQuery->fetch_array()){
+while ($aData = $oQuery->fetch_array()) {
   if ($aData["DOCPRO"] == "") {
     $mData[$aData["DOCLAS"]][$aData["DOCYEA"]][$aData["DOCNUM"]][$aData["DOCNOM"]] = $aData["DOPATH"];
   } else {
@@ -17,7 +17,8 @@ while($aData = $oQuery->fetch_array()){
 
 $mData = f_filtroPrimerNivel($mData);
 
-function f_filtroPrimerNivel($mArchivos = array()) {
+function f_filtroPrimerNivel($mArchivos = array())
+{
   $mReturn                                          = array();
   $mReturn["Invitacion privada de varias ofertas"]  = $mArchivos["Invitacion privada de varias ofertas"];
   $mReturn["Invitación privada de unica oferta"]    = organizarDocumentos($mArchivos["Invitación privada de unica oferta"]);
@@ -27,80 +28,81 @@ function f_filtroPrimerNivel($mArchivos = array()) {
   return $mReturn;
 }
 
-function organizarDocumentos($mArchivos) {
+function organizarDocumentos($mArchivos)
+{
   // Definir el orden y los nombres que se mostrarán al usuario
   $orden = [
-      "Estudio previo" => "Estudio Previo",
-      "Matriz de riesgo" => "Matriz de Riesgo",
-      "Estudio de mercado" => "Estudio de Mercado",
-      "Orden de servicios" => "Orden de Servicios",
-      "Acta de aprobacion de poliza" => "Acta de Aprobación de Póliza",
-      "Acta de inicio" => "Acta de Inicio",
-      // Los "Otro Sí" se agregarán aquí después de ser ordenados.
-      "Acta de Suspension" => "Acta de Suspensión",
-      "Acta de Reinicio" => "Acta de Reinicio",
-      "Acto Administrativo De Declaracion Desierto" => "Acto Administrativo de Declaración Desierto",
-      "Acta de liquidacion" => "Acta de Liquidación"
+    "Estudio previo" => "Estudio Previo",
+    "Matriz de riesgo" => "Matriz de Riesgo",
+    "Estudio de mercado" => "Estudio de Mercado",
+    "Orden de servicios" => "Orden de Servicios",
+    "Acta de aprobacion de poliza" => "Acta de Aprobación de Póliza",
+    "Acta de inicio" => "Acta de Inicio",
+    // Los "Otro Sí" se agregarán aquí después de ser ordenados.
+    "Acta de Suspension" => "Acta de Suspensión",
+    "Acta de Reinicio" => "Acta de Reinicio",
+    "Acto Administrativo De Declaracion Desierto" => "Acto Administrativo de Declaración Desierto",
+    "Acta de liquidacion" => "Acta de Liquidación"
   ];
 
   foreach ($mArchivos as $year => &$docsByYear) {
-      foreach ($docsByYear as $num => &$docsByNum) {
-          $docsOrganizados = [];
-          $otrosDocs = [];
-          $especialDocs = [];
-          $otroSiDocs = [];
+    foreach ($docsByYear as $num => &$docsByNum) {
+      $docsOrganizados = [];
+      $otrosDocs = [];
+      $especialDocs = [];
+      $otroSiDocs = [];
 
-          // Recorrer los documentos y separar los "Otro Sí" y otros documentos
-          foreach ($docsByNum as $docNom => $path) {
-              if (preg_match('/Otro Si No\. (\d+)/', $docNom, $matches)) {
-                  // Extraer el número consecutivo y almacenar el documento en $otroSiDocs
-                  $otroSiDocs[(int)$matches[1]][] = ["name" => $docNom, "path" => $path];
-              } else {
-                  $otrosDocs[$docNom] = $path;
-              }
-          }
-
-          // Ordenar los "Otro Si" basados en el número consecutivo
-          ksort($otroSiDocs);
-          foreach ($otroSiDocs as $otroSiGroup) {
-              foreach ($otroSiGroup as $doc) {
-                  // Renombrar el documento Otro Si para tener capitalización correcta
-                  $nuevoNombre = str_replace(
-                      ["otro si", "no."],
-                      ["Otro Si", "No."],
-                      ucwords(strtolower($doc['name']))
-                  );
-                  $especialDocs[$nuevoNombre] = $doc['path'];
-              }
-          }
-
-          // Iniciar la organización de documentos basados en el orden definido
-          $docsOrganizadosFinal = [];
-
-          foreach ($orden as $tipoDoc => $nombreAMostrar) {
-              // Si el documento existe en la lista de otros documentos, agregarlo en el orden correcto
-              foreach ($otrosDocs as $docNom => $path) {
-                  if (stripos($docNom, $tipoDoc) !== false) {
-                      $docsOrganizadosFinal[$nombreAMostrar] = $path;
-                      unset($otrosDocs[$docNom]);  // Eliminar para evitar duplicados
-                      break;
-                  }
-              }
-
-              // Insertar los "Otro Sí" justo después de "Acta de Inicio"
-              if ($nombreAMostrar == "Acta de Inicio") {
-                  $docsOrganizadosFinal = array_merge($docsOrganizadosFinal, $especialDocs);
-              }
-          }
-
-          // Agregar cualquier documento restante que no esté en $orden
-          foreach ($otrosDocs as $docNom => $path) {
-              $docsOrganizadosFinal[$docNom] = $path;
-          }
-
-          // Actualizar la lista de documentos organizados para el número de contrato
-          $docsByNum = $docsOrganizadosFinal;
+      // Recorrer los documentos y separar los "Otro Sí" y otros documentos
+      foreach ($docsByNum as $docNom => $path) {
+        if (preg_match('/Otro Si No\. (\d+)/', $docNom, $matches)) {
+          // Extraer el número consecutivo y almacenar el documento en $otroSiDocs
+          $otroSiDocs[(int)$matches[1]][] = ["name" => $docNom, "path" => $path];
+        } else {
+          $otrosDocs[$docNom] = $path;
+        }
       }
+
+      // Ordenar los "Otro Si" basados en el número consecutivo
+      ksort($otroSiDocs);
+      foreach ($otroSiDocs as $otroSiGroup) {
+        foreach ($otroSiGroup as $doc) {
+          // Renombrar el documento Otro Si para tener capitalización correcta
+          $nuevoNombre = str_replace(
+            ["otro si", "no."],
+            ["Otro Si", "No."],
+            ucwords(strtolower($doc['name']))
+          );
+          $especialDocs[$nuevoNombre] = $doc['path'];
+        }
+      }
+
+      // Iniciar la organización de documentos basados en el orden definido
+      $docsOrganizadosFinal = [];
+
+      foreach ($orden as $tipoDoc => $nombreAMostrar) {
+        // Si el documento existe en la lista de otros documentos, agregarlo en el orden correcto
+        foreach ($otrosDocs as $docNom => $path) {
+          if (stripos($docNom, $tipoDoc) !== false) {
+            $docsOrganizadosFinal[$nombreAMostrar] = $path;
+            unset($otrosDocs[$docNom]);  // Eliminar para evitar duplicados
+            break;
+          }
+        }
+
+        // Insertar los "Otro Sí" justo después de "Acta de Inicio"
+        if ($nombreAMostrar == "Acta de Inicio") {
+          $docsOrganizadosFinal = array_merge($docsOrganizadosFinal, $especialDocs);
+        }
+      }
+
+      // Agregar cualquier documento restante que no esté en $orden
+      foreach ($otrosDocs as $docNom => $path) {
+        $docsOrganizadosFinal[$docNom] = $path;
+      }
+
+      // Actualizar la lista de documentos organizados para el número de contrato
+      $docsByNum = $docsOrganizadosFinal;
+    }
   }
 
   return $mArchivos;
@@ -148,7 +150,7 @@ function organizarDocumentos($mArchivos) {
 
   <!-- ======= Header  ======= -->
   <header id="header" class="fixed-top d-flex align-items-center header-transparent">
-    
+
     <div class="container-fluid">
 
       <div class="row justify-content-center align-items-center">
@@ -167,21 +169,20 @@ function organizarDocumentos($mArchivos) {
                   <li><a href="Portafolio.html">Portafolio</a></li>
                   <li><a href="InformeGestion.html">Informe de gestión</a></li>
                   <li><a href="Libro/Libro.html">Asdetboy en los territorios 2019 - 2023</a></li>
-                  </li>
-                </ul>
               </li>
+            </ul>
+            </li>
 
-              <li class="dropdown"><a href=" "><span>Herramientas</span> <i class="bi bi-chevron-down"></i></a>
-                <ul>
-                  <li><a href="https://asdetboyxperience.com" target="_blank"><img src="assets/img/Index/logo_Xperience.png" style="width: 100%;" alt=""></a></li>
-                  <li><a href="https://asdetboysgd.com/login.php"><img src="assets/img/Index/Logo_SGD.png" style="width: 100%;" alt=""></a></li>
-                </ul>
-              </li>
+            <li class="dropdown"><a href=" "><span>Herramientas</span> <i class="bi bi-chevron-down"></i></a>
+              <ul>
+                <li><a href="https://asdetboysgd.com/login.php"><img src="assets/img/Index/Logo_SGD.png" style="width: 100%;" alt=""></a></li>
+              </ul>
+            </li>
 
-              <li><a class="nav-link" href="GestionContractual.php">Gestión contractual</a></li>
+            <li><a class="nav-link" href="GestionContractual.php">Gestión contractual</a></li>
 
-              <li><a class="nav-link" href="Contactanos.html">Atención al público</a></li>
-              
+            <li><a class="nav-link" href="Contactanos.html">Atención al público</a></li>
+
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
           </nav><!-- .navbar -->
@@ -192,8 +193,8 @@ function organizarDocumentos($mArchivos) {
   </header>
   <!-- End Header -->
 
-<!-- ======= Carrousell Section ======= -->
-<section id="hero">
+  <!-- ======= Carrousell Section ======= -->
+  <section id="hero">
     <div class="hero-container">
       <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 
@@ -307,104 +308,104 @@ function organizarDocumentos($mArchivos) {
   </section><!-- End Carrousell -->
 
 
-<main id="main">
-  <section id="about">
-    <div class="container" data-aos="fade-up">
+  <main id="main">
+    <section id="about">
+      <div class="container" data-aos="fade-up">
         <header class="section-header">
           <h3>Gestión Contractual</h3>
           <p>En la sección de gestión contractual encontrará toda la documentación que se registra desde el año 2019 en adelante. Podrá encontrarla seleccionando los elementos deseados.</p>
-      </header>
-     <!-- ----------------------- acordeon -------------------------- -->
+        </header>
+        <!-- ----------------------- acordeon -------------------------- -->
 
-      <div class="container">
-        <ul>
-          <li class="dropdown-gestion">
-            <a href="#" data-toggle="dropdown" style="text-align: center;">Invitación pública <i
-                class="icon-arrow"></i></a>
-                <ul class="dropdown-gestion-menu">
-                  <li class="dropdown-gestion">
-                    <a href="#" data-toggle="dropdown"><i class='bx bxs-archive'></i></i> 2022<i class="icon-arrow"
-                        style="color: black;"></i></a>
-                          
-                  </li>
-                  <li class="dropdown-gestion">
-                    <a href="#" data-toggle="dropdown"><i class='bx bxs-archive'></i></i> 2021<i class="icon-arrow"
-                        style="color: black;"></i></a>
-                  </li>
-                  <li class="dropdown-gestion">
-                    <a href="#" data-toggle="dropdown"><i class='bx bxs-archive'></i></i> 2020<i class="icon-arrow"
-                        style="color: black;"></i></a>
-                        
-                  </li>
-                  <li class="dropdown-gestion">
-                    <a href="#" data-toggle="dropdown"><i class='bx bxs-archive'></i></i> 2019<i class="icon-arrow"
-                        style="color: black;"></i></a>
-                  </li>
-                </ul>
-          </li>
-          <?php 
-            foreach ($mData as $sClasificacion => $mContratos) {
-              ?>
+        <div class="container">
+          <ul>
+            <li class="dropdown-gestion">
+              <a href="#" data-toggle="dropdown" style="text-align: center;">Invitación pública <i
+                  class="icon-arrow"></i></a>
+              <ul class="dropdown-gestion-menu">
                 <li class="dropdown-gestion">
-                  <a href="#" data-toggle="dropdown" class="dropdown-toggle">
-                    <?php echo $sClasificacion;?><i class="icon-arrow"></i>
-                  </a>
-                  <ul class="dropdown-gestion-menu">
-                    <?php 
-                      foreach ($mContratos as $cYear => $aContratos) {
+                  <a href="#" data-toggle="dropdown"><i class='bx bxs-archive'></i></i> 2022<i class="icon-arrow"
+                      style="color: black;"></i></a>
+
+                </li>
+                <li class="dropdown-gestion">
+                  <a href="#" data-toggle="dropdown"><i class='bx bxs-archive'></i></i> 2021<i class="icon-arrow"
+                      style="color: black;"></i></a>
+                </li>
+                <li class="dropdown-gestion">
+                  <a href="#" data-toggle="dropdown"><i class='bx bxs-archive'></i></i> 2020<i class="icon-arrow"
+                      style="color: black;"></i></a>
+
+                </li>
+                <li class="dropdown-gestion">
+                  <a href="#" data-toggle="dropdown"><i class='bx bxs-archive'></i></i> 2019<i class="icon-arrow"
+                      style="color: black;"></i></a>
+                </li>
+              </ul>
+            </li>
+            <?php
+            foreach ($mData as $sClasificacion => $mContratos) {
+            ?>
+              <li class="dropdown-gestion">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                  <?php echo $sClasificacion; ?><i class="icon-arrow"></i>
+                </a>
+                <ul class="dropdown-gestion-menu">
+                  <?php
+                  foreach ($mContratos as $cYear => $aContratos) {
+                  ?>
+                    <li class="dropdown-gestion">
+                      <a href="#" data-toggle="dropdown">
+                        <i class='bx bxs-archive'></i> <?php echo $cYear; ?>
+                        <i class="icon-arrow" style="color: black;"></i>
+                      </a>
+                      <ul class="dropdown-gestion-menu">
+                        <?php
+                        foreach ($aContratos as $cContrato => $mArchivos) {
                         ?>
                           <li class="dropdown-gestion">
-                            <a href="#" data-toggle="dropdown">
-                                <i class='bx bxs-archive'></i> <?php echo $cYear;?>
-                                <i class="icon-arrow" style="color: black;"></i>
+                            <a href="#">
+                              <?php echo $cContrato; ?>
+                              <i class="icon-arrow" style="color: black;"></i>
                             </a>
                             <ul class="dropdown-gestion-menu">
                               <?php
-                                foreach ($aContratos as $cContrato => $mArchivos) {
-                                  ?>
-                                  <li class="dropdown-gestion">
-                                    <a href="#">
-                                      <?php echo $cContrato;?>
-                                      <i class="icon-arrow" style="color: black;"></i>
-                                    </a>
-                                    <ul class="dropdown-gestion-menu">
-                                      <?php
-                                        foreach ($mArchivos as $sDocumento => $sPath) {
-                                          ?>
-                                            <li><a href="<?php echo $sPath;?>" target="_blank"><?php echo $sDocumento;?></a></li>
-                                          <?php
-                                        }
-                                      ?>
-                                      <br>
-                                    </ul>
-                                  </li>
-                                  <?php
-                                }
+                              foreach ($mArchivos as $sDocumento => $sPath) {
                               ?>
-                            </ul> 
+                                <li><a href="<?php echo $sPath; ?>" target="_blank"><?php echo $sDocumento; ?></a></li>
+                              <?php
+                              }
+                              ?>
+                              <br>
+                            </ul>
                           </li>
                         <?php
-                      }
-                    ?>
-                  </ul>
-                </li>
-                <?php
+                        }
+                        ?>
+                      </ul>
+                    </li>
+                  <?php
+                  }
+                  ?>
+                </ul>
+              </li>
+            <?php
             }
-          ?>
-        </ul>
+            ?>
+          </ul>
+        </div>
+
+
+        <br><br><br>
+    </section>
+
     </div>
-    
-    
-          <br><br><br>
-        </section>
-    
-    </div>
 
-  </section>
-</main>
+    </section>
+  </main>
 
 
-<!-- End #main -->
+  <!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
@@ -466,9 +467,8 @@ function organizarDocumentos($mArchivos) {
   <!-- <div id="preloader"></div> -->
 
   <script>
-
-      document.querySelectorAll('.dropdown-gestion > a').forEach(dropdownToggle => {
-      dropdownToggle.addEventListener('click', function (e) {
+    document.querySelectorAll('.dropdown-gestion > a').forEach(dropdownToggle => {
+      dropdownToggle.addEventListener('click', function(e) {
         e.preventDefault();
         const parentDropdown = this.parentElement;
         parentDropdown.classList.toggle('open');
@@ -481,19 +481,20 @@ function organizarDocumentos($mArchivos) {
         });
       });
     });
-
   </script>
 
-</script>
+  </script>
 
   <script>
     // JavaScript para hacer un desplazamiento suave hacia la sección "featured-services"
     document.addEventListener("DOMContentLoaded", function() {
-      document.querySelector("#about").scrollIntoView({ behavior: "smooth" });
+      document.querySelector("#about").scrollIntoView({
+        behavior: "smooth"
+      });
     });
   </script>
-  
-  
+
+
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
@@ -512,4 +513,5 @@ function organizarDocumentos($mArchivos) {
   <script type="module" src="TablaContratos.js"> </script> -->
 
 </body>
+
 </html>
